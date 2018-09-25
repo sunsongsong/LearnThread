@@ -9,7 +9,7 @@ import java.util.concurrent.CyclicBarrier;
  * 2.让这些线程等待至一定的时间，如果还有线程没有到达barrier状态就直接让到达barrier的线程执行后续任务
  * public int await(long timeout, TimeUnit unit)throws InterruptedException,BrokenBarrierException,TimeoutException { };
  */
-public class LearnCyclicBarrier {
+public class CyclicBarrierDemo {
 
     public static void main(String[] args) {
         //缺点：继续处理其他任务... 会重复

@@ -23,6 +23,9 @@ https://www.cnblogs.com/aaron911/p/6213808.html
 ######4.1scheduleAtFixedRate() 按照固定频率去执行任务的
 ######4.2scheduleWithFixedDelay() 按照固定的延迟去执行任务
 
+####四：直接使用ThreadPoolExecutor来创建线程池 ThreadPoolExecutorDemo.java
+
+
 
 
 

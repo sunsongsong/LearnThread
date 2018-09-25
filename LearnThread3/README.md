@@ -4,13 +4,13 @@ http://www.importnew.com/21889.html
 https://www.cnblogs.com/lizhangyong/p/8906774.html
 
 ##知识点
-####一：CountDownLatch 线程计数器 LearnCountDownLatch.java
+####一：CountDownLatch 线程计数器 CountDownLatchDemo.java
 #####利用它可以实现类似计数器的功能。比如有一个任务A，它要等待其他4个任务执行完毕之后才能执行，此时就可以利用CountDownLatch来实现这种功能了。
 #####类似于线程计数器,也称之为发令枪,也常被用于做并发测试
-####二：CyclicBarrier 循环障碍器 LearnCyclicBarrier.java
+####二：CyclicBarrier 循环障碍器 CyclicBarrierDemo.java
 #####通过它可以实现让一组线程等待至某个状态之后再全部同时执行,和CountDownLatch类似
 #####相较于CountDownLatch可以重用
-####三：Semaphore 信号量 LearnSemaphore.java
+####三：Semaphore 信号量 SemaphoreDemo.java
 #####可以控同时访问的线程个数 
 ####四：Phaser 同步辅助类 (待完成)
 #####

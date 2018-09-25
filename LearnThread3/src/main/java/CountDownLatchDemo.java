@@ -14,7 +14,7 @@ import java.util.concurrent.Executors;
  * 4.将count值减1
  * public void countDown() { };
  */
-public class LearnCountDownLatch {
+public class CountDownLatchDemo {
 
 
     public static void main(String[] args){
