@@ -12,6 +12,7 @@
         <module>LearnThread1</module>
         <module>LearnThread2</module>
         <module>LearnThread3</module>
+        <module>LearnThread4</module>
     </modules>
 
     <build>

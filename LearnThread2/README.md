@@ -24,6 +24,11 @@ https://www.cnblogs.com/aaron911/p/6213808.html
 ######4.2scheduleWithFixedDelay() 按照固定的延迟去执行任务
 
 ####四：直接使用ThreadPoolExecutor来创建线程池 ThreadPoolExecutorDemo.java
+######ThreadPoolExecutor是Executors类的底层实现
+######官方建议使用Executors的工程方法来创建线程池
+######Executors.newCachedThreadPool() 无界线程池,可以进行自动线程回收
+######Executors.newFixedThreadPool()  固定大小线程池
+######Executors.newSingleThreadPool() 单个后台线程
 
 
 
