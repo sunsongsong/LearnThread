@@ -14,6 +14,8 @@
         <module>LearnThread3</module>
         <module>LearnThread4</module>
         <module>LearnThread5</module>
+        <module>LearnThread6</module>
+        <module>LearnMySQL</module>
     </modules>
 
     <build>

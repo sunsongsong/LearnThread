@@ -1,0 +1,114 @@
+1.创建数据库
+    存在“RUNOOB”则不创建,不存在则创建,并且指定字符集编码
+    CREATE DATABASE IF NOT EXISTS RUNOOB DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+2.删除数据库
+    DROP DATABASE RUNOOB;
+3.创建表
+    CREATE TABLE IF NOT EXISTS `runoob_tbl`(
+       `runoob_id` INT UNSIGNED AUTO_INCREMENT,
+       `runoob_title` VARCHAR(100) NOT NULL,
+       `runoob_author` VARCHAR(40) NOT NULL,
+       `submission_date` DATE,
+       PRIMARY KEY ( `runoob_id` )
+    )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+4.删除表
+    DROP TABLE table_name;
+5.常用增、删、改 语句结构
+    增:INSERT INTO table_name ( field1, field2,...fieldN ) VALUES ( value1, value2,...valueN );
+    删:DELETE FROM table_name [WHERE Clause]
+    改:UPDATE table_name SET field1=new-value1, field2=new-value2 [WHERE Clause]
+6.常用简单的关键字
+    LIKE: 一般用于模糊查询 like '%A%'
+    UNION: 返回合并后去重的数据
+    UNION ALL: 返回合并后全部数据,包含重复
+    ORDER BY: 默认升序排列 ORDER BY ASC/DESC (升序/降序)
+7.分组查询的使用
+    GROUP BY: 主要用于分组统计
+    案例:统计每个人的登录次数和登录总数
+    SELECT coalesce(name, '总数'), SUM(singin) as singin_count FROM  employee_tbl GROUP BY name WITH ROLLUP;
+    说明:
+    coalesce(a,b,c) 如果a为null则选b如果b为null则选c
+    WITH ROLLUP 可以实现在分组统计数据基础上再进行相同的统计(SUM,AVG,COUNT…)
+8.连接的使用
+    INNER JOIN(内连接):获取两个表中字段匹配关系的记录。
+    LEFT JOIN(左连接):获取左表所有记录，即使右表没有对应匹配的记录。
+    RIGHT JOIN(右连接):与 LEFT JOIN 相反，用于获取右表所有记录，即使左表没有对应匹配的记录。
+9.NULL 值处理
+    IS NULL: 当列的值是 NULL,此运算符返回 true。
+    IS NOT NULL: 当列的值不为 NULL, 运算符返回 true。
+    注意不能使用 != null
+10.正则表达式
+    例子：
+    SELECT name FROM person_tbl WHERE name REGEXP '^st'; //查找name字段中以'st'为开头的所有数据
+    SELECT name FROM person_tbl WHERE name REGEXP 'ok$'; //查找name字段中以'ok'为结尾的所有数据
+    SELECT name FROM person_tbl WHERE name REGEXP 'mar'; //查找name字段中包含'mar'字符串的所有数据
+    SELECT name FROM person_tbl WHERE name REGEXP '^[aeiou]|ok$'; //查找name字段中以元音字符开头或以'ok'字符串结尾的所有数据
+11.修改表
+    删除列：alter table 表名 drop column 列名;
+    添加列：alter table member_required add column requiredCompanyCode varchar(64) DEFAULT NULL COMMENT '公司股票代码' after requiredCompany;
+    修改类型及列名: ALTER TABLE 表名 CHANGE 原始字段名 现在的字段名 修改后的类型;
+        例如：ALTER TABLE testalter_tbl CHANGE i j BIGINT;
+    修改字段默认值：ALTER TABLE testalter_tbl ALTER i SET DEFAULT 1000;
+    删除默认值：ALTER TABLE testalter_tbl ALTER i DROP DEFAULT;
+    修改表名：ALTER TABLE testalter_tbl RENAME TO alter_tbl;
+12.索引
+    --索引创建
+        普通索引：
+        CREATE INDEX mytable_categoryid ON mytable (category_id);
+        唯一索引：
+        CREATE UNIQUE INDEX mytable_categoryid ON mytable (category_id);
+        全文索引：
+        CREATE FULLTEXT INDEX mytable_categoryid ON mytable(category_id);
+
+        指定索引类型：
+        CREATE INDEX mytable_categoryid USING index_type[BTREE || HASH] ON mytable (category_id);
+        例如：CREATE INDEX idx_type_platformId USING BTREE ON gdsp_news (type,platformId);
+
+    --删除索引
+        DROP INDEX index_name ON talbe_name
+    --索引类型：HASH 和BTREE（带范围的、有NULL值的  不能用HASH，优先HASH,不适用再BTREE）
+        HASH 不支持范围查询，和排序
+    --查看索引建立后是否使用上了
+        explain select * from table where x1 = '' and x2 = '' .....
+        查看possible_keys 中使用的索引
+13.复制表
+    只复制表结构到新表：create table 新表 like 旧表
+    复制表结构及数据到新表：create table新表 select * from 旧表
+    拷贝一个表中其中的一些字段:
+        CREATE TABLE newadmin AS
+        (
+            SELECT username, password FROM admin
+        )
+    可以将新建的表的字段改名:
+        CREATE TABLE newadmin AS
+        (
+            SELECT id, username AS uname, password AS pass FROM admin
+        )
+    可以拷贝一部分数据:
+        CREATE TABLE newadmin AS
+        (
+            SELECT * FROM admin WHERE LEFT(username,1) = 's'
+        )
+    可以在创建表的同时定义表中的字段信息:
+        CREATE TABLE newadmin
+        (
+            id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY
+        )
+        AS
+        (
+            SELECT * FROM admin
+        )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
