@@ -21,11 +21,13 @@ class MyThread8 implements Runnable{    // 实现Runnable接口
             try{
                 Thread.sleep(500);//休眠一下
             }catch(Exception e){}
-            System.out.println(Thread.currentThread().getName()
-                    + "运行，i = " + i);    // 取得当前线程的名字
-            if(i==2){
-                System.out.print("线程礼让：");
-                Thread.currentThread().yield();    // 首先获取当前线程，然后线程礼让
+            synchronized (this){
+                System.out.println(Thread.currentThread().getName()
+                        + "运行，i = " + i);    // 取得当前线程的名字
+                if(i==2){
+                    System.out.print("线程礼让：");
+                    Thread.currentThread().yield();    // 首先获取当前线程，然后线程礼让(相当于在某种程度上交替执行,但是执行时不一定交替)
+                }
             }
         }
     }

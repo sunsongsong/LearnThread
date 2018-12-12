@@ -21,7 +21,7 @@ public class ThreadDemo2 {
         FutureTask<Integer> ft = new FutureTask(myCallable); //使用FutureTask来包装MyCallable对象
 
         for (int i = 0; i < 100; i++) {
-            System.out.println(Thread.currentThread().getName() + " " + i);
+            System.out.println(Thread.currentThread().getName() + " 主线程 " + i);
             if (i == 30) {
                 Thread thread = new Thread(ft);   //FutureTask对象作为Thread对象的target创建新的线程
                 thread.start();                      //线程进入到就绪状态
@@ -50,7 +50,7 @@ class MyCallable implements Callable<Integer> {
     public Integer call() {
         int sum = 0;
         for (; i < 100; i++) {
-            System.out.println(Thread.currentThread().getName() + " " + i);
+            System.out.println(Thread.currentThread().getName() + " 子线程 " + i);
             sum += i;
         }
         return sum;

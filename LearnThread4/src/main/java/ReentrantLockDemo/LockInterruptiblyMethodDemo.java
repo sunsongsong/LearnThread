@@ -29,7 +29,7 @@ public class LockInterruptiblyMethodDemo {
             System.out.println(thread.getName()+"得到了锁");
             long startTime = System.currentTimeMillis();
             for(    ;     ;) {
-                if(System.currentTimeMillis() - startTime >= Integer.MAX_VALUE)
+                if(System.currentTimeMillis() - startTime >= 1000)
                     break;
                 //插入数据
             }

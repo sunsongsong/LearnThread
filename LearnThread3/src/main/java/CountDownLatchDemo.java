@@ -19,9 +19,9 @@ public class CountDownLatchDemo {
 
     public static void main(String[] args){
         //初识
-        //testCountDownLatch();
+        testCountDownLatch();
         //发令枪的使用
-        concurrentTest();
+//        concurrentTest();
     }
 
     /**

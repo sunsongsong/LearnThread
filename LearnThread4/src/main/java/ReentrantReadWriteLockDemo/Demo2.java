@@ -23,7 +23,7 @@ public class Demo2 {
     }
 
     public void get(Thread thread) {
-        rwl.readLock().lock();
+        rwl.readLock().lock();//相当于demo1中不增加synchronized
         try {
             long start = System.currentTimeMillis();
 

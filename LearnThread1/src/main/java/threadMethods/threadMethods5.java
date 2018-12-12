@@ -12,7 +12,7 @@ public class threadMethods5 {
         try{
             Thread.sleep(2000);    // 线程休眠2秒
         }catch(InterruptedException e){
-            System.out.println("3、休眠被终止");
+            System.out.println("5、休眠被终止");
         }
         t.interrupt();    // 中断线程执行
     }

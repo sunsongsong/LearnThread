@@ -95,16 +95,14 @@ public class SumCallable implements Callable<BigDecimal>{
         BigDecimal sum = sumCallable.getSum(min,max,5);
         long endTime = System.currentTimeMillis();
         System.out.println("sumCallable.getSum()="+sum);
-        System.out.println(sum + " 耗时："+"endTime="+endTime+"beginTime="+beginTime);
-        System.out.println(sum + " 耗时："+(endTime-beginTime));
+        System.out.println(" 耗时："+(endTime-beginTime));
 
         long beginTime2 = System.currentTimeMillis();
         BigDecimal sum2 = getSumOnly(min,max);
 
         long endTime2 = System.currentTimeMillis();
         System.out.println("getSumOnly()="+sum2);
-        System.out.println(sum2 + " 耗时："+"endTime2="+endTime2+"beginTime2="+beginTime2);
-        System.out.println(sum2 + " 耗时："+(endTime2-beginTime2));
+        System.out.println(" 耗时："+(endTime2-beginTime2));
 
     }
 }

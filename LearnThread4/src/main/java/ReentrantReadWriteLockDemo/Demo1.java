@@ -25,7 +25,7 @@ public class Demo1 {
 
     public synchronized void get(Thread thread) {
         long start = System.currentTimeMillis();
-        while(System.currentTimeMillis() - start <= 1) {
+        while(System.currentTimeMillis() - start <= 0.001) {
             System.out.println(thread.getName()+"正在进行读操作");
         }
         System.out.println(thread.getName()+"读操作完毕");

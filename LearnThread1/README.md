@@ -28,7 +28,7 @@ https://www.cnblogs.com/alsf/p/5651888.html
 #####6. interrupt() 线程的中断 可以实现条件判断不让线程继续执行 【threadMethods5.java】
 #####7. setDaemon() 让线程在后台执行 【threadMethods6.java】
 #####8. getPriority() 获取线程的优先级 setPriority() 设置线程的优先级 【threadMethods7.java】
-#####9. yield() 线程的礼让 【threadMethods8.java】
+#####9. yield() 线程的礼让 (相当于在某种程度上交替执行,但是执行时不一定交替)【threadMethods8.java】
  
 
 ####三：常见的三种多线程的创建方法【ThreadDemo1.java ThreadDemo2.java】
